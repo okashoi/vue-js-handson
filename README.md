@@ -47,5 +47,38 @@ HTML 側で `{{ }}` を用いることで変数を展開できます。
 vm.message = 'Hello Vue'
 ```
 
-###
+### 配列の要素の描画
 
+v-for を使うことで配列の要素を描画することができます。
+
+```html
+<script type="text/javascript">
+var vm = new Vue({
+    el: '#app',
+    data: {
+        users: [
+            {name: 'Alice'},
+            {name: 'Bob'},
+            {name: 'Carol'}
+        ]
+    }
+});
+</script>
+```
+
+```html
+<div id="app" class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for='user in users'>
+                <td>{{ user.name }}</td>
+            </tr>
+        <tbody>
+    </table>
+</div>
+```
